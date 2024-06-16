@@ -3,7 +3,7 @@
 
 namespace Messaging
 {
-	APIResult PrecisionInterface::AddPreHitCallback(SKSE::PluginHandle a_pluginHandle, PreHitCallback&& a_preHitCallback) noexcept
+	APIResult PrecisionInterface::AddPreHitCallback(SFSE::PluginHandle a_pluginHandle, PreHitCallback&& a_preHitCallback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddPreHitCallback(a_pluginHandle, a_preHitCallback)) {
 			return APIResult::OK;
@@ -12,7 +12,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::AddPostHitCallback(SKSE::PluginHandle a_pluginHandle, PostHitCallback&& a_postHitCallback) noexcept
+	APIResult PrecisionInterface::AddPostHitCallback(SFSE::PluginHandle a_pluginHandle, PostHitCallback&& a_postHitCallback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddPostHitCallback(a_pluginHandle, a_postHitCallback)) {
 			return APIResult::OK;
@@ -21,7 +21,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::AddPrePhysicsStepCallback(SKSE::PluginHandle a_pluginHandle, PrePhysicsStepCallback&& a_prePhysicsStepCallback) noexcept
+	APIResult PrecisionInterface::AddPrePhysicsStepCallback(SFSE::PluginHandle a_pluginHandle, PrePhysicsStepCallback&& a_prePhysicsStepCallback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddPrePhysicsStepCallback(a_pluginHandle, a_prePhysicsStepCallback)) {
 			return APIResult::OK;
@@ -30,7 +30,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::AddCollisionFilterComparisonCallback(SKSE::PluginHandle a_pluginHandle, CollisionFilterComparisonCallback&& a_collisionFilterComparisonCallback) noexcept
+	APIResult PrecisionInterface::AddCollisionFilterComparisonCallback(SFSE::PluginHandle a_pluginHandle, CollisionFilterComparisonCallback&& a_collisionFilterComparisonCallback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddCollisionFilterComparisonCallback(a_pluginHandle, a_collisionFilterComparisonCallback)) {
 			return APIResult::OK;
@@ -39,7 +39,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemovePreHitCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemovePreHitCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemovePreHitCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -48,7 +48,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemovePostHitCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemovePostHitCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemovePostHitCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -57,7 +57,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemovePrePhysicsStepCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemovePrePhysicsStepCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemovePrePhysicsStepCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -66,7 +66,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemoveCollisionFilterComparisonCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemoveCollisionFilterComparisonCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemoveCollisionFilterComparisonCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -80,7 +80,7 @@ namespace Messaging
 		return PrecisionHandler::GetSingleton()->GetAttackCollisionReach(a_actorHandle, a_collisionType);
 	}
 
-	APIResult PrecisionInterface::AddWeaponWeaponCollisionCallback(SKSE::PluginHandle a_pluginHandle, WeaponCollisionCallback&& a_callback) noexcept
+	APIResult PrecisionInterface::AddWeaponWeaponCollisionCallback(SFSE::PluginHandle a_pluginHandle, WeaponCollisionCallback&& a_callback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddWeaponWeaponCollisionCallback(a_pluginHandle, a_callback)) {
 			return APIResult::OK;
@@ -89,7 +89,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemoveWeaponWeaponCollisionCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemoveWeaponWeaponCollisionCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemoveWeaponWeaponCollisionCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -98,7 +98,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::AddWeaponProjectileCollisionCallback(SKSE::PluginHandle a_pluginHandle, WeaponCollisionCallback&& a_callback) noexcept
+	APIResult PrecisionInterface::AddWeaponProjectileCollisionCallback(SFSE::PluginHandle a_pluginHandle, WeaponCollisionCallback&& a_callback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddWeaponProjectileCollisionCallback(a_pluginHandle, a_callback)) {
 			return APIResult::OK;
@@ -107,7 +107,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemoveWeaponProjectileCollisionCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemoveWeaponProjectileCollisionCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemoveWeaponProjectileCollisionCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -121,7 +121,7 @@ namespace Messaging
 		PrecisionHandler::GetSingleton()->ApplyHitImpulse(a_actorHandle, a_rigidBody, a_hitVelocity, a_hitPosition, a_impulseMult, true, true);
 	}
 
-	APIResult PrecisionInterface::AddCollisionFilterSetupCallback(SKSE::PluginHandle a_pluginHandle, CollisionFilterSetupCallback&& a_callback) noexcept
+	APIResult PrecisionInterface::AddCollisionFilterSetupCallback(SFSE::PluginHandle a_pluginHandle, CollisionFilterSetupCallback&& a_callback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddCollisionFilterSetupCallback(a_pluginHandle, a_callback)) {
 			return APIResult::OK;
@@ -130,7 +130,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemoveCollisionFilterSetupCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemoveCollisionFilterSetupCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemoveCollisionFilterSetupCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -139,7 +139,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::AddContactListenerCallback(SKSE::PluginHandle a_pluginHandle, ContactListenerCallback&& a_callback) noexcept
+	APIResult PrecisionInterface::AddContactListenerCallback(SFSE::PluginHandle a_pluginHandle, ContactListenerCallback&& a_callback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddContactListenerCallback(a_pluginHandle, a_callback)) {
 			return APIResult::OK;
@@ -148,7 +148,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemoveContactListenerCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemoveContactListenerCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemoveContactListenerCallback(a_pluginHandle)) {
 			return APIResult::OK;
@@ -187,7 +187,7 @@ namespace Messaging
 		return PrecisionHandler::ToggleDisableActor(a_actorHandle, a_bDisable);
 	}
 
-	APIResult PrecisionInterface::AddPrecisionLayerSetupCallback(SKSE::PluginHandle a_pluginHandle, PrecisionLayerSetupCallback&& a_callback) noexcept
+	APIResult PrecisionInterface::AddPrecisionLayerSetupCallback(SFSE::PluginHandle a_pluginHandle, PrecisionLayerSetupCallback&& a_callback) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->AddPrecisionLayerSetupCallback(a_pluginHandle, a_callback)) {
 			return APIResult::OK;
@@ -196,7 +196,7 @@ namespace Messaging
 		}
 	}
 
-	APIResult PrecisionInterface::RemovePrecisionLayerSetupCallback(SKSE::PluginHandle a_pluginHandle) noexcept
+	APIResult PrecisionInterface::RemovePrecisionLayerSetupCallback(SFSE::PluginHandle a_pluginHandle) noexcept
 	{
 		if (PrecisionHandler::GetSingleton()->RemovePrecisionLayerSetupCallback(a_pluginHandle)) {
 			return APIResult::OK;
