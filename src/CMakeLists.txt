@@ -126,19 +126,20 @@ target_include_directories(
 		"${SOURCE_DIR}"
 )
 
-set(SKSE_SUPPORT_XBYAK ON)
+set(SFSE_SUPPORT_XBYAK ON)
 
-add_subdirectory("$ENV{CommonLibSSEPath_NG}" CommonLibSSE EXCLUDE_FROM_ALL)
+add_subdirectory("$ENV{CommonLibSF}" CommonLibSF EXCLUDE_FROM_ALL)
 
 add_subdirectory("${ROOT_DIR}/extern/glm" glm)
-
+add_subdirectory(extern/CommonLibSF)
 find_package(tomlplusplus REQUIRED CONFIG)
 find_package(xbyak REQUIRED CONFIG)
+find_package(commonLibSF CONFIG REQUIRED)
 
 target_link_libraries(
 	"${PROJECT_NAME}"
 	PRIVATE
-		CommonLibSSE::CommonLibSSE
+		CommonLibSF::CommonLibSF
 		glm::glm
 		tomlplusplus::tomlplusplus
 		xbyak::xbyak
@@ -153,7 +154,7 @@ target_precompile_headers(
 install(
 	FILES
 		"$<TARGET_FILE:${PROJECT_NAME}>"
-	DESTINATION "SKSE/Plugins"
+	DESTINATION "SFSE/Plugins"
 	COMPONENT "main"
 )
 
@@ -168,8 +169,8 @@ if("${COPY_OUTPUT}")
 	add_custom_command(
 		TARGET "${PROJECT_NAME}"
 		POST_BUILD
-		COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_FILE:${PROJECT_NAME}>" "${CompiledPluginsPath}/SKSE/Plugins/"
-		COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_PDB_FILE:${PROJECT_NAME}>" "${CompiledPluginsPath}/SKSE/Plugins/"
+		COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_FILE:${PROJECT_NAME}>" "${CompiledPluginsPath}/SFSE/Plugins/"
+		COMMAND "${CMAKE_COMMAND}" -E copy_if_different "$<TARGET_PDB_FILE:${PROJECT_NAME}>" "${CompiledPluginsPath}/SFSE/Plugins/"
 		VERBATIM
 	)
 endif()
